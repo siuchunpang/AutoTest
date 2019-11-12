@@ -5,20 +5,24 @@ import time
 
 class LoginPage(Page):
     # 用户登陆
-    accountIcon = (By.XPATH, '//*[@id="app"]/div[1]/div/div[3]/a[2]')
+    accoun_icon = (By.XPATH, '//*[@id="app"]/div[1]/div/div[3]/a[2]')
     user_name = (By.XPATH, '//*[@id="app"]/div[3]/div[2]/div[2]/div/div[1]/div[1]/input')
     pass_word = (By.XPATH, '//*[@id="app"]/div[3]/div[2]/div[2]/div/div[1]/div[2]/input')
     submit = (By.XPATH, '//*[@id="app"]/div[3]/div[2]/div[2]/div/div[1]/div[4]/div[1]')
+    cart_icon = (By.XPATH, '//*[@id="app"]/div[1]/div/div[3]/a[2]/div[2]')
 
-    def __init__(self, usr, psw):
-        self.usr = usr
-        self.psw = psw
+    def __init__(self, driver):
+        super().__init__(driver)
 
-    def login(self):
-        self.click(self.accountIcon)
+    def login(self, usr, psw):
+        self.click(self.accoun_icon)
         time.sleep(0.5)
-        self.input_text(self.user_name, text=self.usr)
+        self.input_text(self.user_name, text=usr)
         time.sleep(0.5)
-        self.input_text(self.pass_word, text=self.psw)
+        self.input_text(self.pass_word, text=psw)
         time.sleep(0.5)
         self.click(self.submit)
+
+    def is_login(self):
+        element = self.find_element(self.cart_icon)
+        self.is_element_visible(element)

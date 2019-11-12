@@ -1,33 +1,30 @@
 import unittest
 import time
-from common import webtools
 from pages.loginPage import LoginPage
+from selenium import webdriver
 
 
 # 四维看看测试
 class TestLoginPage(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webtools.common_driver()
+        self.driver = webdriver.Chrome()
+        self.driver.implicitly_wait(10)
+        self.driver.maximize_window()
 
     # 输入正确的账号密码登录
-    def testLogin(self):
-        driver = self.driver
-        # 四维看看测试首页
-        base_url = "http://pro.4dkankan.com"
-
+    def test_right_login(self):
         # 创建Page对象
-        login_Page = LoginPage('13631262926', 'junpeng123')
+        login_page = LoginPage(self.driver)
 
         # 启动浏览器，进入四维看看首页
-        login_Page.goto_homePage()
-        driver.maximize_window()
+        login_page.get_webpage()
 
         # 登录
-        login_Page.login()
+        login_page.login('13631262926', 'junpeng123')
 
         # 断言
-
+        login_page.is_login()
 
     def tearDown(self):
         time.sleep(10)
