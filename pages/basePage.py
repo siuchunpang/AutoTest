@@ -1,5 +1,4 @@
 import time
-from selenium.webdriver.support import expected_conditions as EC
 
 
 class Page(object):
@@ -16,7 +15,8 @@ class Page(object):
         time.sleep(10)
 
     def find_element(self, *loc):
-        return self.driver.find_element(*loc)
+        element = self.driver.find_element(*loc)
+        return element
 
     def input_text(self, loc, text):
         self.find_element(*loc).send_keys(text)
@@ -27,17 +27,7 @@ class Page(object):
     def click(self, loc):
         self.find_element(*loc).click()
 
-    def get_title(self):
-        return self.driver.find_element_by_xpath('/html/head/title').text
-
-    def is_element_visible(self, element):
-        driver = self.driver
-        try:
-            the_element = EC.visibility_of_element_located(element)
-            assert the_element(driver)
-            flag = True
-        except AssertionError as e:
-            flag = False
-            print(e)
-        return flag
+    def get_scene_title(self):
+        title = self.driver.find_element_by_id('j-header-scenename').text
+        return title
 

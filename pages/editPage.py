@@ -6,7 +6,7 @@ import time
 
 class EditPage(Page):
     # 新增热点
-    hot_menu = (By.XPATH, '/html/body/div[3]/div[1]/ul/li[3]')
+    hot_menu = (By.XPATH, '/html/body/div[3]/div[1]/ul/li[4]')
     new_hot = (By.XPATH, '/html/body/div[3]/div[3]/div[1]/ul/li[1]/div/button')
     style = (By.XPATH, '/html/body/div[3]/div[3]/div[2]/div[2]/ul/li[1]/ul/li[6]')
     step_one = (By.XPATH, '/html/body/div[3]/div[2]/div[2]/div')
@@ -60,7 +60,7 @@ class EditPage(Page):
     def edit_scene_info(self):
         self.clear_text(self.old_title)
         time.sleep(0.5)
-        new_title = '北京05311'
+        new_title = '测试是否断连'
         self.input_text(self.old_title, new_title)
 
 

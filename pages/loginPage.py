@@ -1,4 +1,6 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 from pages.basePage import Page
 import time
 
@@ -22,7 +24,7 @@ class LoginPage(Page):
         self.input_text(self.pass_word, text=psw)
         time.sleep(0.5)
         self.click(self.submit)
+        time.sleep(3)
 
     def is_login(self):
-        element = self.find_element(self.cart_icon)
-        self.is_element_visible(element)
+        return WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self.cart_icon))

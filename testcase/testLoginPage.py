@@ -24,10 +24,9 @@ class TestLoginPage(unittest.TestCase):
         login_page.login('13631262926', 'junpeng123')
 
         # 断言
-        login_page.is_login()
+        self.assertTrue(login_page.is_login())
 
     def tearDown(self):
-        time.sleep(10)
         self.driver.quit()
 
 
