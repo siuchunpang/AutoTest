@@ -31,3 +31,6 @@ class Page(object):
         title = self.driver.find_element_by_id('j-header-scenename').text
         return title
 
+    def save_img(self, testcase_name, img_name):
+        self.driver.get_screenshot_as_file('./' + testcase_name + '/' + img_name)
+

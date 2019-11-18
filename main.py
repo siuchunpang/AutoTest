@@ -1,11 +1,13 @@
 import unittest
 import time
+import datetime
 from BeautifulReport import BeautifulReport
 # from common import HTMLTestRunner
 # from testcase.testEditPage import TestEditPage
 
 if __name__ == '__main__':
     now = time.strftime("%Y-%m-%d %H_%M_%S", time.localtime())
+    today = datetime.date.today().strftime('%Y-%m-%d')
 
     test_suite = unittest.defaultTestLoader.discover('./testcase', pattern='test*.py')
     result = BeautifulReport(test_suite)

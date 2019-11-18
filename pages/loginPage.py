@@ -1,3 +1,4 @@
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
@@ -27,4 +28,8 @@ class LoginPage(Page):
         time.sleep(3)
 
     def is_login(self):
-        return WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self.cart_icon))
+        try:
+            result = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self.cart_icon))
+        except TimeoutException:
+            result = False
+        return result
