@@ -2,7 +2,7 @@ import time
 
 
 class Page(object):
-    def __init__(self, driver, base_url="https://pro.4dkankan.com"):
+    def __init__(self, driver, base_url="https://www.4dkankan.com"):
         self.driver = driver
         self.base_url = base_url
         self.timeout = 30

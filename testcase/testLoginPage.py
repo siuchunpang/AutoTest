@@ -4,7 +4,7 @@ from pages.loginPage import LoginPage
 from selenium import webdriver
 
 
-# 四维看看测试
+# 四维看看登录测试
 class TestLoginPage(unittest.TestCase):
 
     def setUp(self):
@@ -21,7 +21,7 @@ class TestLoginPage(unittest.TestCase):
         login_page.get_webpage()
 
         # 登录
-        login_page.login('13631262926', 'junpeng123')
+        login_page.login('13631262926', '1111111111')
 
         # 断言
         result = login_page.is_login()

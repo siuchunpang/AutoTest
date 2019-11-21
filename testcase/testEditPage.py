@@ -27,7 +27,7 @@ class TestEditPage(unittest.TestCase):
         self.driver.maximize_window()
 
         # 登录
-        login_page.login('13631262926', 'junpeng123')
+        login_page.login('13631262926', '1111111111')
 
         # 进入场景编辑界面
         page.goto_scene_edit_page(scene_url)
@@ -43,7 +43,7 @@ class TestEditPage(unittest.TestCase):
         # 编辑场景信息
         print('编辑场景信息')
         edit_page.edit_scene_info()
-        print('修改成功')
+        print('场景信息修改成功')
 
     '''
     @br.add_test_img('测试热点.png')
