@@ -1,4 +1,7 @@
 import time
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.common.exceptions import TimeoutException
 
 
 class Page(object):
@@ -33,4 +36,11 @@ class Page(object):
 
     def save_img(self, testcase_name, img_name):
         self.driver.get_screenshot_as_file('./' + testcase_name + '/' + img_name)
+
+    def is_visible_element(self, element):
+        try:
+            result = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(element))
+        except TimeoutException:
+            result = False
+        return result
 

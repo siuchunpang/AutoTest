@@ -7104,44 +7104,57 @@ body.skin-3 {
 <script src="https://cdn.bootcss.com/chosen/1.8.2/chosen.jquery.js"></script>
 <script type="text/javascript">
     var resultData = {
-    "testPass": 1,
+    "testPass": 3,
     "testResult": [
         {
             "className": "TestEditPage",
             "methodName": "testSceneInfo",
             "description": null,
-            "spendTime": "26.7 s",
+            "spendTime": "34.7 s",
             "status": "成功",
             "log": [
                 "场景标题：测试是否断连",
-                "编辑场景信息",
-                "修改成功",
+                "标题：自动化测试",
+                "简介：四维看看 让空间讲故事 自动化测试",
+                "",
+                "链接文本：自动化测试展示页面",
+                "链接地址：https://www.4dkankan.com/editProPC.html?m=opT87AQtZ",
+                "result_of_tips_title:<selenium.webdriver.remote.webelement.WebElement (session=\"032305d2fc6be7c336055ac69ea8f895\", element=\"0.3010472026310509-8\")>",
+                "result_of_tips_content:<selenium.webdriver.remote.webelement.WebElement (session=\"032305d2fc6be7c336055ac69ea8f895\", element=\"0.3010472026310509-9\")>",
                 "<br></br>",
                 ""
             ]
         },
         {
             "className": "TestLoginPage",
-            "methodName": "test_right_login",
+            "methodName": "test_login_right_testcase",
             "description": null,
-            "spendTime": "16.4 s",
-            "status": "失败",
+            "spendTime": "21.0 s",
+            "status": "成功",
             "log": [
-                "",
-                "Traceback (most recent call last):\n",
-                "  File \"D:\\Program Files (x86)\\Python3.7\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
-                "  File \"D:\\Program Files (x86)\\Python3.7\\lib\\unittest\\case.py\", line 615, in run\n    testMethod()\n",
-                "  File \"F:\\Project\\AutoTest\\testcase\\testLoginPage.py\", line 28, in test_right_login\n    self.assertTrue(login_page.is_login())\n",
-                "  File \"D:\\Program Files (x86)\\Python3.7\\lib\\unittest\\case.py\", line 692, in assertTrue\n    raise self.failureException(msg)\n",
-                "AssertionError: None is not true\n"
+                "case1_is_login:<selenium.webdriver.remote.webelement.WebElement (session=\"e90f25424ad940c7b0dbcd806535d0f7\", element=\"0.11541905235883454-5\")>",
+                ""
+            ]
+        },
+        {
+            "className": "TestLoginPage",
+            "methodName": "test_login_wrongpsw_testcase",
+            "description": null,
+            "spendTime": "31.5 s",
+            "status": "成功",
+            "log": [
+                "D:\\Program Files (x86)\\Python3.7\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py:1031: UserWarning: name used for saved screenshot does not match file type. It should end with a `.png` extension",
+                "  \"type. It should end with a `.png` extension\", UserWarning)",
+                "case2_is_login:False",
+                ""
             ]
         }
     ],
     "testName": "测试报告",
-    "testAll": 2,
-    "testFail": 1,
-    "beginTime": "2019-11-13 20:43:06",
-    "totalTime": "43s",
+    "testAll": 3,
+    "testFail": 0,
+    "beginTime": "2019-11-25 21:51:34",
+    "totalTime": "87s",
     "testSkip": 0,
     "testError": 0
 };
