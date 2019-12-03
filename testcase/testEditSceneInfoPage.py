@@ -1,14 +1,14 @@
 import unittest
 import time
 from selenium import webdriver
-from pages.editPage import EditPage
+from pages.editSceneInfoPage import EditSceneInfoPage
 from pages.loginPage import LoginPage
 from pages.basePage import Page
 from BeautifulReport import BeautifulReport as br
 
 
 # 四维看看测试
-class TestEditPage(unittest.TestCase):
+class TestEditSceneInfoPage(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Chrome()
@@ -41,10 +41,10 @@ class TestEditPage(unittest.TestCase):
         title = "自动化测试"
         content = "四维看看 让空间讲故事 自动化测试\n"
         link_text = "自动化测试展示页面"
-        link_address = "https://www.4dkankan.com/editProPC.html?m=opT87AQtZ"
+        link_address = "https://www.4dkankan.com/showProPC.html?m=opT87AQtZ"
 
         driver = self.driver
-        edit_page = EditPage(driver)
+        edit_page = EditSceneInfoPage(driver)
 
         # 编辑场景信息
         edit_page.edit_scene_info("标题", title)
@@ -65,18 +65,6 @@ class TestEditPage(unittest.TestCase):
         result_of_tips_content = edit_page.is_tips_content()
         print("result_of_tips_content:" + str(result_of_tips_content))
         self.assertTrue(result_of_tips_content)
-
-    '''
-    @br.add_test_img('测试热点.png')
-    def testHot(self):
-        driver = self.driver
-        edit_page = EditPage(driver)
-
-        # 添加热点
-        print('添加热点')
-        edit_page.add_hot()
-        print('成功添加热点')
-    '''
 
     def tearDown(self):
         self.driver.quit()
